@@ -1,0 +1,15 @@
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/builder/WebClientBuilder.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/model/Stats.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/model/member/Member.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/controller/GameController.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/model/game/Game.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/service/GameService.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/utils/Constants.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/service/impl/GameServiceImpl.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/service/impl/BaseServiceImpl.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/service/MemberService.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/controller/MemberController.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/model/member/MemberGeneralStats.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/service/impl/MemberServiceImpl.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/configuration/WebAppConfiguration.java
+/home/heitor2/Documents/workspace-sts-3.6.4.RELEASE/canalbrasil2/src/main/java/br/com/canalbrasil2/model/member/MemberGames.java
