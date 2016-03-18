@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import br.com.canalbrasil2.builder.WebClientBuilder;
 import br.com.canalbrasil2.model.Stats;
 import br.com.canalbrasil2.model.member.Member;
-import br.com.canalbrasil2.model.member.MemberGames;
+import br.com.canalbrasil2.model.member.MemberGame;
 import br.com.canalbrasil2.model.member.MemberGeneralStats;
 import br.com.canalbrasil2.service.MemberService;
 import br.com.canalbrasil2.utils.Constants;
@@ -22,6 +22,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlTableRow;
 @Service
 public class MemberServiceImpl extends BaseServiceImpl implements MemberService
 {
+	private static final int PAGE_LIMIT = 30;
 
 	public List<Member> getRank() 
 	{
@@ -72,7 +73,7 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService
 		return members;
 	}
 	
-	public Member getMember(String user)
+	public Member getMember(String user, int pageNumber)
 	{
 		Member member = new Member(); 
 		
@@ -103,8 +104,8 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService
 			Integer denies		= Integer.valueOf(	botRow.getCell(7)	.getElementsByTagName("div").get(0).asText());
 			Integer neutrals	= Integer.valueOf(	botRow.getCell(8)	.getElementsByTagName("div").get(0).asText());
 			Integer towers		= Integer.valueOf(	botRow.getCell(9)	.getElementsByTagName("div").get(0).asText());
-			Integer rk			= Integer.valueOf(	botRow.getCell(10)	.getElementsByTagName("div").get(0).asText());
-			Integer ck			= Integer.valueOf(	botRow.getCell(11)	.getElementsByTagName("div").get(0).asText());
+//			Integer rk			= Integer.valueOf(	botRow.getCell(10)	.getElementsByTagName("div").get(0).asText());
+//			Integer ck			= Integer.valueOf(	botRow.getCell(11)	.getElementsByTagName("div").get(0).asText());
 				
 			Stats stats = new Stats(kills, deaths, assists, creeps, denies, neutrals, towers);
 
@@ -112,15 +113,26 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService
 			
 			member.setGeneralStats(generalStats);
 			
-			List<MemberGames> memberGames = new ArrayList<MemberGames>();
+			List<MemberGame> memberGames = new ArrayList<MemberGame>();
 
-			int i = 0;
+			int start	= (pageNumber -1) * PAGE_LIMIT;
+			int end		= start + PAGE_LIMIT;
 			
-			while(true)
+			if(end > games)
+				end = games;
+			
+			if(start > games)
+			{
+				member.setMemberGames(memberGames);
+				webClient.close();
+				return member;
+			}
+			
+			while(start < end)
 			{
 				try
 				{
-					HtmlTable tableStats	= (HtmlTable) page.getElementsByTagName("table").get(4+i);
+					HtmlTable tableStats	= (HtmlTable) page.getElementsByTagName("table").get(4 + start);
 					
 					topRow 					= tableStats.getBodies().get(0).getRows().get(1);
 					botRow					= tableStats.getBodies().get(0).getRows().get(3);
@@ -147,16 +159,16 @@ public class MemberServiceImpl extends BaseServiceImpl implements MemberService
 					neutrals				= Integer.parseInt(getStringDivFromCell(botRow.getCell(6)));
 					int gold				= Integer.parseInt(getStringDivFromCell(botRow.getCell(7)));
 					towers					= Integer.parseInt(getStringDivFromCell(botRow.getCell(8)));
-					rk						= Integer.parseInt(getStringDivFromCell(botRow.getCell(9)));
-					ck						= Integer.parseInt(getStringDivFromCell(botRow.getCell(10)));
+//					rk						= Integer.parseInt(getStringDivFromCell(botRow.getCell(9)));
+//					ck						= Integer.parseInt(getStringDivFromCell(botRow.getCell(10)));
 										
 					stats = new Stats(kills, deaths, assists, creeps, denies, neutrals, towers, gold);
 
-					MemberGames memberGame = new MemberGames(game, date, duration, hero, items, team, winner, stats);
+					MemberGame memberGame = new MemberGame(game, date, duration, hero, items, team, winner, stats);
 					
 					memberGames.add(memberGame);
 
-					i++;
+					start++;
 				}
 				catch(Exception e)
 				{

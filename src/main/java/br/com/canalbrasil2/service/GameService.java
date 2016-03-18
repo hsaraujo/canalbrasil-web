@@ -7,4 +7,6 @@ import br.com.canalbrasil2.model.game.Game;
 public interface GameService 
 {
 	List<Game> getGamesList(int pageNumber);
+	
+	Game getGameById(int id);
 }

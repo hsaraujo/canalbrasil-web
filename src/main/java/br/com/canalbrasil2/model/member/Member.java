@@ -15,7 +15,7 @@ public class Member
 	private String bestKD;
 	private String bestCS;
 	private MemberGeneralStats generalStats;
-	private List<MemberGames> memberGames;
+	private List<MemberGame> memberGame;
 	
 	public Member(){
 		
@@ -122,11 +122,11 @@ public class Member
 		this.generalStats = generalStats;
 	}
 	
-	public List<MemberGames> getMemberGames() {
-		return memberGames;
+	public List<MemberGame> getMemberGames() {
+		return memberGame;
 	}
 	
-	public void setMemberGames(List<MemberGames> memberGames) {
-		this.memberGames = memberGames;
+	public void setMemberGames(List<MemberGame> memberGame) {
+		this.memberGame = memberGame;
 	}
 }

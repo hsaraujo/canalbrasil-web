@@ -8,5 +8,5 @@ public interface MemberService
 {
 	List<Member> getRank();
 	
-	Member getMember(String user);
+	Member getMember(String user, int pageNumber);
 }

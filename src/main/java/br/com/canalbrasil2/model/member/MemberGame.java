@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.canalbrasil2.model.Stats;
 
-public class MemberGames {
+public class MemberGame {
 	
 	private int game;
 	private Date date;
@@ -16,7 +16,7 @@ public class MemberGames {
 	private boolean winner;
 	private Stats stats; 
 	
-	public MemberGames(int game, Date date, String duration, String hero, List<String> items, String team, boolean winner,
+	public MemberGame(int game, Date date, String duration, String hero, List<String> items, String team, boolean winner,
 						Integer	kills, Integer deaths, Integer assists, Integer creepKills, Integer creepDennies, Integer neutrals,
 						Integer gold, Integer towers)
 	{
@@ -31,7 +31,7 @@ public class MemberGames {
 		this.stats = new Stats(kills, deaths, assists, creepKills, creepDennies, neutrals, gold, towers);
 	}
 	
-	public MemberGames(int game, Date date, String duration, String hero, List<String> items, String team, boolean winner, Stats stats)
+	public MemberGame(int game, Date date, String duration, String hero, List<String> items, String team, boolean winner, Stats stats)
 	{
 		this.game			= game;
 		this.date			= date;
@@ -43,7 +43,7 @@ public class MemberGames {
 		this.stats 			= stats;
 	}		
 	
-	public MemberGames(){
+	public MemberGame(){
 		
 	}
 
