@@ -28,6 +28,7 @@ public class Member
 		this.points			= points;
 		this.games			= games;
 		this.wins			= wins;
+		this.looses			= looses;
 		this.winPercentage	= winPercentage;
 		this.favoriteHero	= favoriteHero;
 		this.bestKD			= bestKD;

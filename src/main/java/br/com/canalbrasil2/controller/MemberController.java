@@ -28,7 +28,7 @@ public class MemberController
 	}
 	
 	@RequestMapping(value = "/{user}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public Member getMember(@PathVariable(value="user") String user, @RequestParam(value="page") Integer page)
+	public Member getMember(@PathVariable(value="user") String user, @RequestParam(value = "page", required = false) Integer page)
 	{	
 		if(page == null || page < 1)
 			page = 1;

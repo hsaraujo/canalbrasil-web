@@ -22,7 +22,7 @@ public class GameController
 	private GameService gameService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON)
-	public List<Game> getGames(@RequestParam(value="page") Integer page)
+	public List<Game> getGames(@RequestParam(value="page", required = false) Integer page)
 	{	
 		if(page == null || page < 1)
 			page = 1;
